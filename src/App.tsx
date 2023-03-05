@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { Config } from './types';
+import { Header } from './components/Header';
+import { Movies } from './components/Movies';
+import { Footer } from './components/Footer';
+import { MoviesProvider } from './contexts/movies';
+import { MovieDetailsProvider } from './contexts/movie-details';
+import styles from './App.module.scss';
 
-function App() {
+const App = () => {
+  const [config, setConfig] = useState({} as Config);
+
+  useEffect(() => {
+      const fetchConfig = async () => {
+          try {
+              const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/configuration?api_key=${process.env.REACT_APP_API_KEY}`);
+              const json = await response.json();
+              setConfig(json.images);
+          } catch (error) {
+              console.log('There was an error', error);
+          }
+      }
+      fetchConfig();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MoviesProvider>
+      <MovieDetailsProvider>
+        <div className={styles.app}>
+            <Header />
+            <Movies config={config} />
+            <Footer />
+        </div>
+      </MovieDetailsProvider>
+    </MoviesProvider>
   );
 }
 

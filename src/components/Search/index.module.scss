@@ -1,0 +1,34 @@
+.search {
+    position: relative;
+    height: 30px;
+    width: 200px;
+
+    &__input {
+        height: 20px;
+        background-color: var(--off-blue);
+        border: none;
+        border-radius: 2px;
+        padding: 5px 40px 5px 15px;
+        color: var(--white);
+
+        &::placeholder {
+            color: var(--light-blue);
+            font-style: italic;
+        }
+
+        &:focus-visible {
+            outline: var(--off-blue) auto 1px;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 4px;
+        right: 10px;
+        font-size: 24px;
+
+        &--clear:hover {
+            cursor: pointer;
+        }
+    }
+}

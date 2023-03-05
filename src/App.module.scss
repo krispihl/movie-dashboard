@@ -1,0 +1,11 @@
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr 60px;
+  grid-template-areas: 
+      "header"
+      "videos"
+      "footer";
+  background-color: var(--primary-blue);
+  height: 100vh;
+}
