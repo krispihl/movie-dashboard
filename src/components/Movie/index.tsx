@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { MovieWithCustomProps, Config } from '../../types';
+import { MovieWithCustomProps } from '../../types';
 import { MovieDetails } from '../MovieDetails';
 import { useMovieDetails } from '../../contexts/movie-details';
+import { useMovies } from '../../contexts/movies';
 import styles from './index.module.scss';
 
 type Props = {
     data: MovieWithCustomProps;
-    config: Config;
     backDropSpacing: string;
 };
 
-export const Movie = ({ data, config, backDropSpacing }: Props) => {
+export const Movie = ({ data, backDropSpacing }: Props) => {
+    const { config} = useMovies();
     const { showMovieDetails, setShowMovieDetails, setVideoEmbedId, setActiveRow } = useMovieDetails();
     const [embedId, setEmbedId] = useState('');
-    const posterUrl = data.poster_path ? `${config.base_url}w154${data.poster_path}` : '';
+    const posterUrl = (config.base_url && data.poster_path) ? `${config.base_url}w154${data.poster_path}` : '';
 
     useEffect(() => {
         const fetchVideos = async () => {
@@ -24,8 +25,9 @@ export const Movie = ({ data, config, backDropSpacing }: Props) => {
                 const officialTrailer = json.results.find((result: any) => (result.official === true && result.type === 'Trailer'))?.key;
 
                 setEmbedId(officialTrailer);
-            } catch (error) {
-                console.log('There was an error', error);
+            } catch (e) {
+                // In live app should send a message to some logger service
+                console.log('There was an error fetching movie trailer', e);
             }
         }
 

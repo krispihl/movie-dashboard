@@ -1,22 +1,34 @@
 import { useCallback, useEffect, useState } from 'react';
-import { MovieWithCustomProps, Config } from '../../types';
+import { MovieWithCustomProps } from '../../types';
 import { Movie } from '../Movie';
 import { VideoModal } from '../VideoModal';
+import { ErrorView } from '../ErrorView';
 import { SkeletonMovies } from '../Skeletons/SkeletonMovies';
 import { useMovies } from '../../contexts/movies';
 import { useMovieDetails } from '../../contexts/movie-details';
 import { recursiveFetch } from '../../utils/recursive-fetch';
 import styles from './index.module.scss';
 
-type Props = {
-    config: Config;
-};
-
-export const Movies = ({ config }: Props) => {
+export const Movies = () => {
     const [loading, setLoading] = useState(true);
-    const { allMovies, setAllMovies, filteredMovies, setFilteredMovies } = useMovies();
-    const { videoEmbedId, backDropSpacing, activeRow } = useMovieDetails();
     const [moviesWithRowData, setMoviesWithRowData] = useState([] as MovieWithCustomProps[]);
+    const [errorView, setErrorView] = useState(false);
+    const { setConfig, allMovies, setAllMovies, filteredMovies, setFilteredMovies } = useMovies();
+    const { videoEmbedId, backDropSpacing, activeRow } = useMovieDetails();
+
+    useEffect(() => {
+        const fetchConfig = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/configuration?api_key=${process.env.REACT_APP_API_KEY}`);
+                const json = await response.json();
+                setConfig(json.images);
+            } catch (e) {
+                // In live app should send a message to some logger service
+                console.log('There was an error fetching config', e);
+            }
+        }
+        fetchConfig();
+    }, [setConfig]);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -25,8 +37,11 @@ export const Movies = ({ config }: Props) => {
                 setAllMovies(fetchedMovies);
                 setFilteredMovies(fetchedMovies);
                 setLoading(false);
-            } catch (error) {
-                console.log('There was an error', error);
+                setErrorView(false);
+            } catch (e) {
+                // In live app should send a message to some logger service
+                console.log('There was an error fetching movies', e);
+                setErrorView(true);
             }
         }
         fetchMovies();
@@ -65,8 +80,9 @@ export const Movies = ({ config }: Props) => {
 
     return (
         loading ? <SkeletonMovies /> :
+        errorView ? <ErrorView /> :
         <main className={styles.movies} id='movies-grid'>
-            {moviesWithRowData.map((movie, i) => <Movie key={`${movie.id}-${i}`} data={movie} config={config} backDropSpacing={movie.rowPosition  === activeRow ? backDropSpacing : ''} />)}
+            {moviesWithRowData.map((movie, i) => <Movie key={`${movie.id}-${i}`} data={movie} backDropSpacing={movie.rowPosition  === activeRow ? backDropSpacing : ''} />)}
             {videoEmbedId && <VideoModal embedId={videoEmbedId} />}
         </main>
     )

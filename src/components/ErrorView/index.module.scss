@@ -1,0 +1,21 @@
+.errorView {
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    font-size: 18px;
+    font-weight: 300;
+
+    &__notice {
+        display: flex;
+
+        span {
+            margin-left: 10px;
+        }
+    }
+
+    p:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+}

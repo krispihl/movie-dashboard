@@ -20,8 +20,9 @@ export const Search = () => {
                 }
 
                 setFilteredMovies(allMovies);
-            } catch (error) {
-                console.log('There was an error', error);
+            } catch (e) {
+                // In live app should send a message to some logger service
+                console.log('There was an error searching for movies', e);
             }
         }, 300);
         
