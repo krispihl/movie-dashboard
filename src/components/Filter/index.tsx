@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { Genre } from '../../types';
+import { Genre, PopularGenres } from '../../types';
 import { useMovies } from '../../contexts/movies';
 import styles from './index.module.scss';
 
-const POPULAR_CATEGORIES = [35, 18, 28, 27, 99];
+const POPULAR_CATEGORIES = [PopularGenres.Comedy, PopularGenres.Drama, PopularGenres.Action, PopularGenres.Horror, PopularGenres.Documentary];
 
 export const Filter = () => {
     const [activeGenre, setActiveGenre] = useState(1);
@@ -13,6 +13,7 @@ export const Filter = () => {
 
     useEffect(() => {
         const fetchGenres = async () => {
+            let allGenres;
             try {
                 const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
                 const json = await response.json();
@@ -23,11 +24,15 @@ export const Filter = () => {
                         popular: isPopular,
                     }
                 }));
-                const allGenres = [{ id: 1, name: 'All movies', popular: true }, ...modifiedGenres];
+                allGenres = [{ id: 1, name: 'All movies', popular: true }, ...modifiedGenres];
 
                 setGenres(allGenres);
             } catch (error) {
-                console.log('There was an error', error);
+                allGenres = [{ id: 1, name: 'All movies', popular: true }];
+                setGenres(allGenres);
+
+                // In live app should send a message to some logger service
+                console.log('There was an error fetching genres', error);
             }
         }
 
@@ -70,12 +75,14 @@ export const Filter = () => {
     return (
         <ul className={styles.genres}>
             {getFilters(showOnlyPopular)}
-            <button
-                className={styles.genres__item}
-                onClick={() => setShowOnlyPopular(prevState => !prevState)}
-            >
-                {showOnlyPopular ? 'More' : 'Less'}
-            </button>
+            {getFilters(showOnlyPopular).length > 1 &&
+                <button
+                    className={styles.genres__item}
+                    onClick={() => setShowOnlyPopular(prevState => !prevState)}
+                >
+                    {showOnlyPopular ? 'More' : 'Less'}
+                </button>
+            }
         </ul>
     )
 };

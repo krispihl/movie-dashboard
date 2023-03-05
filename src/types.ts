@@ -35,3 +35,11 @@ export type Config = {
     profile_sizes: string[];
     still_sizes: string[];
 };
+
+export enum PopularGenres {
+    Comedy = 35,
+    Drama = 18,
+    Action = 28,
+    Horror = 27,
+    Documentary = 99
+};
