@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/MovieDetails should render MovieDetails correctly 1`] = `
+<div>
+  <div
+    class="details__pointer"
+  />
+  <div
+    class="details__pointer--border"
+  />
+  <div
+    class="details"
+    style="left: 0px;"
+  >
+    <div
+      class="details__data"
+      id="back-123456"
+    >
+      <h2
+        class="details__data--title"
+      >
+        The Movie
+      </h2>
+      <div
+        class="mocked-rating"
+      />
+      <p
+        class="details__data--overview"
+      >
+        Story about writing tests
+      </p>
+      <ul
+        class="details__data--genres"
+      >
+        <li>
+          #Animation
+        </li>
+        <li>
+          #Action
+        </li>
+      </ul>
+    </div>
+    <div
+      class="details__image-wrapper"
+    >
+      <img
+        alt="The Movie"
+        src="http://image.tmdb.org/t/p/w780/backdrop.jpg"
+        style="height: 0px;"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Filter should render Filter correctly with all genres 1`] = `
+<div>
+  <ul
+    class="genres"
+  >
+    <button
+      class="genres__item genres__item--active"
+    >
+      All movies
+    </button>
+    <button
+      class="genres__item"
+    >
+      Comedy
+    </button>
+    <button
+      class="genres__item"
+    >
+      Drama
+    </button>
+    <button
+      class="genres__item"
+    >
+      Crime
+    </button>
+    <button
+      class="genres__item"
+    >
+      History
+    </button>
+    <button
+      class="genres__item"
+    >
+      Less
+    </button>
+  </ul>
+</div>
+`;
+
+exports[`src/components/Filter should render Filter correctly with popular genres 1`] = `
+<div>
+  <ul
+    class="genres"
+  >
+    <button
+      class="genres__item genres__item--active"
+    >
+      All movies
+    </button>
+    <button
+      class="genres__item"
+    >
+      Comedy
+    </button>
+    <button
+      class="genres__item"
+    >
+      Drama
+    </button>
+    <button
+      class="genres__item"
+    >
+      More
+    </button>
+  </ul>
+</div>
+`;

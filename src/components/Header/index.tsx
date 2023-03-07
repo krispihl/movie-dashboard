@@ -4,7 +4,7 @@ import { Filter } from '../Filter';
 import { useMovieDetails } from '../../contexts/movie-details';
 import styles from './index.module.scss';
 
-export const Header= () => {
+export const Header = () => {
     const { setShowMovieDetails, setBackDropSpacing } = useMovieDetails();
 
     return (

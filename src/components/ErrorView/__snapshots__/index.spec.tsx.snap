@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/ErrorView should render Errorview correctly 1`] = `
+<div>
+  <div
+    class="errorView"
+    data-testid="errorview"
+  >
+    <p
+      class="errorView__notice"
+    >
+      Now this is unfortunate 
+      <span
+        class="material-icons"
+      >
+        sentiment_very_dissatisfied
+      </span>
+    </p>
+    <p>
+      Seems that something went wrong. Please try to reload.
+    </p>
+    <p>
+      If the problem persists please reach out to our support popular[at]movies.com
+    </p>
+  </div>
+</div>
+`;
+
+exports[`src/components/ErrorView should render Errorview correctly with full height 1`] = `
+<div>
+  <div
+    class="errorView errorView--full"
+    data-testid="errorview"
+  >
+    <p
+      class="errorView__notice"
+    >
+      Now this is unfortunate 
+      <span
+        class="material-icons"
+      >
+        sentiment_very_dissatisfied
+      </span>
+    </p>
+    <p>
+      Seems that something went wrong. Please try to reload.
+    </p>
+    <p>
+      If the problem persists please reach out to our support popular[at]movies.com
+    </p>
+  </div>
+</div>
+`;

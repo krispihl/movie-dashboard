@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Rating should render 0 Rating correctly 1`] = `
+<div>
+  <ul>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+  </ul>
+</div>
+`;
+
+exports[`src/components/Rating should render 5 Rating correctly 1`] = `
+<div>
+  <ul>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_half
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star_outline
+    </span>
+  </ul>
+</div>
+`;
+
+exports[`src/components/Rating should render 10 Rating correctly 1`] = `
+<div>
+  <ul>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+    <span
+      class="material-icons icon"
+    >
+      star
+    </span>
+  </ul>
+</div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/VideoModal should render VideoModal component correctly 1`] = `
+<div>
+  <div
+    class="video"
+  >
+    <div
+      class="video__container"
+    >
+      <iframe
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen=""
+        src="https://www.youtube.com/embed/some_youtube_vid_id?autoplay=1"
+        title="Embedded youtube video"
+      />
+    </div>
+  </div>
+</div>
+`;

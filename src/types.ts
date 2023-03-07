@@ -23,7 +23,6 @@ export type Movie = {
 
 export type MovieWithCustomProps = Movie & {
     rowPosition: number;
-    backDropSpacing?: string;
 };
 
 export type Config = {

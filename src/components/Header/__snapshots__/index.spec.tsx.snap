@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Header should render Header correctly 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <div
+      class="header__row header__row--top"
+    >
+      <h1
+        class="header__title"
+      >
+        Popular movies
+      </h1>
+      <div
+        class="mocked-search"
+      />
+    </div>
+    <div
+      class="header__row header__row--bottom"
+    >
+      <div
+        class="mocked-filters"
+      />
+    </div>
+  </header>
+</div>
+`;

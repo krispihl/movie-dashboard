@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Search should clear searchterm when clicked on clear icon 1`] = `
+<div>
+  <div
+    class="search"
+  >
+    <input
+      class="search__input"
+      placeholder="Search for movies..."
+      value=""
+    />
+    <span
+      class="material-icons search__icon"
+    >
+      search
+    </span>
+  </div>
+</div>
+`;
+
+exports[`src/components/Search should render Search component correctly 1`] = `
+<div>
+  <div
+    class="search"
+  >
+    <input
+      class="search__input"
+      placeholder="Search for movies..."
+      value=""
+    />
+    <span
+      class="material-icons search__icon"
+    >
+      search
+    </span>
+  </div>
+</div>
+`;
+
+exports[`src/components/Search should render Search component correctly when user has typed searchterm 1`] = `
+<div>
+  <div
+    class="search"
+  >
+    <input
+      class="search__input"
+      placeholder="Search for movies..."
+      value="The"
+    />
+    <span
+      class="material-icons search__icon search__icon--clear"
+    >
+      clear
+    </span>
+  </div>
+</div>
+`;

@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const Movie = ({ data, backDropSpacing }: Props) => {
-    const { config} = useMovies();
+    const { config } = useMovies();
     const { showMovieDetails, setShowMovieDetails, setVideoEmbedId, setActiveRow } = useMovieDetails();
     const [embedId, setEmbedId] = useState('');
     const posterUrl = (config.base_url && data.poster_path) ? `${config.base_url}w154${data.poster_path}` : '';
