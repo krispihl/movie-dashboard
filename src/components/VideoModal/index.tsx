@@ -9,7 +9,7 @@ type Props ={
 export const VideoModal = ({ embedId }: Props) => {
     const { setVideoEmbedId } = useMovieDetails();
 
-    const handleEsc = useCallback((event: any) => {
+    const handleEsc = useCallback((event: KeyboardEvent) => {
         if (event.key === 'Escape') {
             setVideoEmbedId('');
         }

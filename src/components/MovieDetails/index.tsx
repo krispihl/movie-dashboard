@@ -25,6 +25,7 @@ export const MovieDetails = ({ data, config }: Props) => {
         const detailsHeight = document?.getElementById(`back-${data.id}`)?.getBoundingClientRect();
         const backDropSpacing = detailsHeight ? `${detailsHeight?.height + 30}` : '0';
         const backDropImageHeight = detailsHeight ? `${detailsHeight?.height}` : '0';
+
         setBackDropSpacing(backDropSpacing);
         setImageHeight(backDropImageHeight);
     }, [data.id, setBackDropSpacing, setImageHeight]);

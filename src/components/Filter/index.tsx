@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import cx from 'classnames';
 import { Genre, PopularGenres } from '../../types';
 import { useMovies } from '../../contexts/movies';
+import { BASE_URL, DEFAULT_LANG } from '../../constants/fetch';
 import styles from './index.module.scss';
 
 const POPULAR_CATEGORIES = [PopularGenres.Comedy, PopularGenres.Drama, PopularGenres.Action, PopularGenres.Horror, PopularGenres.Documentary];
@@ -14,7 +15,7 @@ export const Filter = () => {
         const fetchGenres = async () => {
             let allGenres;
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+                const response = await fetch(`${BASE_URL}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=${DEFAULT_LANG}`);
                 const json = await response.json();
                 const modifiedGenres = json.genres.map(((genre: Genre) => {
                     const isPopular = POPULAR_CATEGORIES.includes(genre.id);
@@ -38,7 +39,7 @@ export const Filter = () => {
         fetchGenres();
     }, [setGenres]);
 
-    const handleClick = (id: number) => {
+    const handleClick = useCallback((id: number) => {
         setActiveGenre(id);
 
         if (id === 1) {
@@ -49,9 +50,9 @@ export const Filter = () => {
         const filteredMovies = allMovies.filter(movie => movie.genre_ids.includes(id));
 
         setFilteredMovies(filteredMovies);
-    };
+    }, [allMovies, setActiveGenre, setFilteredMovies]);
 
-    const getFilters = (onlyPopular: boolean) => {
+    const getFilters = useCallback((onlyPopular: boolean) => {
         let genreList = genres;
 
         if (onlyPopular) {
@@ -69,7 +70,7 @@ export const Filter = () => {
                 </button>
             );
         });
-    };
+    }, [activeGenre, genres, handleClick]);
 
     return (
         <ul className={styles.genres} aria-label='Filter movies' role='row' aria-expanded={!showOnlyPopular}>

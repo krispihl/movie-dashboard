@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { useMovies } from '../../contexts/movies';
 import { recursiveFetch } from '../../utils/recursive-fetch';
+import { BASE_URL, DEFAULT_LANG } from '../../constants/fetch';
 import styles from './index.module.scss';
 
 export const Search = () => {
@@ -15,7 +16,7 @@ export const Search = () => {
             try {
                 setActiveGenre(1);
                 if (query.length) {
-                    searchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&include_adult=false`);
+                    searchedMovies = await recursiveFetch(`${BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=${DEFAULT_LANG}&query=${query}&include_adult=false`);
                     setFilteredMovies(searchedMovies);
                     return;
                 }

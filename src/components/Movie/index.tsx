@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
-import { MovieWithCustomProps } from '../../types';
+import { MovieWithCustomProps, VideoData } from '../../types';
 import { MovieDetails } from '../MovieDetails';
 import { useMovieDetails } from '../../contexts/movie-details';
 import { useMovies } from '../../contexts/movies';
+import { BASE_URL, DEFAULT_LANG } from '../../constants/fetch';
 import styles from './index.module.scss';
 
 type Props = {
@@ -20,9 +21,9 @@ export const Movie = ({ data, backDropSpacing }: Props) => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/movie/${data.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+                const response = await fetch(`${BASE_URL}/movie/${data.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=${DEFAULT_LANG}`);
                 const json = await response.json();
-                const officialTrailer = json.results.find((result: any) => (result.official === true && result.type === 'Trailer'))?.key;
+                const officialTrailer = json.results.find((result: VideoData) => (result.official === true && result.type === 'Trailer'))?.key;
 
                 setEmbedId(officialTrailer);
             } catch (e) {

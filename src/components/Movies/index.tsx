@@ -7,6 +7,7 @@ import { SkeletonMovies } from '../Skeletons/SkeletonMovies';
 import { useMovies } from '../../contexts/movies';
 import { useMovieDetails } from '../../contexts/movie-details';
 import { recursiveFetch } from '../../utils/recursive-fetch';
+import { BASE_URL, DEFAULT_LANG } from '../../constants/fetch';
 import styles from './index.module.scss';
 
 export const Movies = () => {
@@ -19,7 +20,7 @@ export const Movies = () => {
     useEffect(() => {
         const fetchConfig = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/configuration?api_key=${process.env.REACT_APP_API_KEY}`);
+                const response = await fetch(`${BASE_URL}/configuration?api_key=${process.env.REACT_APP_API_KEY}`);
                 const json = await response.json();
                 setConfig(json.images);
             } catch (e) {
@@ -33,7 +34,7 @@ export const Movies = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const fetchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
+                const fetchedMovies = await recursiveFetch(`${BASE_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=${DEFAULT_LANG}`);
                 setAllMovies(fetchedMovies);
                 setFilteredMovies(fetchedMovies);
                 setLoading(false);
