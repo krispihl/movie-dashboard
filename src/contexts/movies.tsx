@@ -10,6 +10,8 @@ export type MoviesContextProps = {
     setFilteredMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
     genres: Genre[];
     setGenres: React.Dispatch<React.SetStateAction<Genre[]>>;
+    activeGenre: number;
+    setActiveGenre: React.Dispatch<React.SetStateAction<number>>
 };
 
 type Props = {
@@ -25,6 +27,8 @@ export const MoviesContext = createContext<MoviesContextProps>({
     setFilteredMovies: () => null,
     genres: [],
     setGenres: () => null,
+    activeGenre: 1,
+    setActiveGenre: () => null,
 });
 
 export const MoviesProvider: React.FC<Props> = ({ children }) => {
@@ -32,9 +36,10 @@ export const MoviesProvider: React.FC<Props> = ({ children }) => {
     const [allMovies, setAllMovies] = useState([] as Movie[]);
     const [filteredMovies, setFilteredMovies] = useState([] as Movie[]);
     const [genres, setGenres] = useState([] as Genre[]);
+    const [activeGenre, setActiveGenre] = useState(1);
 
     return (
-        <MoviesContext.Provider value={{ config, setConfig, allMovies, setAllMovies, filteredMovies, setFilteredMovies, genres, setGenres }}>
+        <MoviesContext.Provider value={{ config, setConfig, allMovies, setAllMovies, filteredMovies, setFilteredMovies, genres, setGenres, activeGenre, setActiveGenre }}>
             {children}
         </MoviesContext.Provider>
     );

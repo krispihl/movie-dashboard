@@ -12,6 +12,8 @@ jest.mock('../../contexts/movies', () => ({
             { id: 36, name: 'History', popular: false },
         ],
         setGenres: jest.fn(),
+        activeGenre: 1,
+        setActiveGenre: jest.fn(),
     })
 }));
 

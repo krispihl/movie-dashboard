@@ -7,8 +7,7 @@ import styles from './index.module.scss';
 const POPULAR_CATEGORIES = [PopularGenres.Comedy, PopularGenres.Drama, PopularGenres.Action, PopularGenres.Horror, PopularGenres.Documentary];
 
 export const Filter = () => {
-    const [activeGenre, setActiveGenre] = useState(1);
-    const { allMovies, setFilteredMovies, genres, setGenres } = useMovies();
+    const { allMovies, setFilteredMovies, genres, setGenres, activeGenre, setActiveGenre } = useMovies();
     const [showOnlyPopular, setShowOnlyPopular] = useState(true);
 
     useEffect(() => {

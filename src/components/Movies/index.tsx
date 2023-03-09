@@ -33,7 +33,7 @@ export const Movies = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const fetchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
+                const fetchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`);
                 setAllMovies(fetchedMovies);
                 setFilteredMovies(fetchedMovies);
                 setLoading(false);

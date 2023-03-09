@@ -5,7 +5,7 @@ import { recursiveFetch } from '../../utils/recursive-fetch';
 import styles from './index.module.scss';
 
 export const Search = () => {
-    const { allMovies, setFilteredMovies } = useMovies();
+    const { allMovies, setFilteredMovies, setActiveGenre } = useMovies();
     const [query, setQuery] = useState('');
 
     useEffect(() => {
@@ -13,8 +13,9 @@ export const Search = () => {
 
         const debouncedSearch = setTimeout(async () => {
             try {
+                setActiveGenre(1);
                 if (query.length) {
-                    searchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
+                    searchedMovies = await recursiveFetch(`${process.env.REACT_APP_API_BASE_URL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&include_adult=false`);
                     setFilteredMovies(searchedMovies);
                     return;
                 }
@@ -27,7 +28,7 @@ export const Search = () => {
         }, 300);
         
         return () => clearTimeout(debouncedSearch);
-    }, [query, allMovies, setFilteredMovies]);
+    }, [query, allMovies, setFilteredMovies, setActiveGenre]);
 
     return (
         <div className={styles.search} aria-label='Search for movies'>

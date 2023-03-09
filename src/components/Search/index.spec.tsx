@@ -30,6 +30,7 @@ jest.mock('../../contexts/movies', () => ({
     useMovies: () => ({
         allMovies: mockedMovies,
         setFilteredMovies: jest.fn(),
+        setActiveGenre: jest.fn(),
     })
 }));
 

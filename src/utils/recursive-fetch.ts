@@ -6,6 +6,7 @@ export const recursiveFetch = async (url: string, page = 1, resonseData = [] as 
         .then(newResponse => {
             const response: Movie[] = [...resonseData, ...newResponse.results];
 
+            // 1 page fetches 20 movies, let's fetch 10 batches = 200 most popular movies
             if (page < 10) {
                 page++;
 
