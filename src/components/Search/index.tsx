@@ -30,7 +30,7 @@ export const Search = () => {
     }, [query, allMovies, setFilteredMovies]);
 
     return (
-        <div className={styles.search}>
+        <div className={styles.search} aria-label='Search for movies'>
             <input
                 className={styles.search__input}
                 placeholder='Search for movies...'
@@ -40,6 +40,7 @@ export const Search = () => {
             <span
                 className={cx('material-icons', styles.search__icon, query.length && styles['search__icon--clear'])}
                 onClick={query.length ? () => setQuery('') : () => {}}
+                aria-label={query.length ? 'Clear search' : 'Search icon'}
             >
                 {query.length ? 'clear' : 'search'}
             </span>

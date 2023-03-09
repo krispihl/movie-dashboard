@@ -73,7 +73,7 @@ export const Filter = () => {
     };
 
     return (
-        <ul className={styles.genres}>
+        <ul className={styles.genres} aria-label='Filter movies' role='row' aria-expanded={!showOnlyPopular}>
             {getFilters(showOnlyPopular)}
             {getFilters(showOnlyPopular).length > 1 &&
                 <button

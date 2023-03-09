@@ -61,7 +61,7 @@ export const MovieDetails = ({ data, config }: Props) => {
             <div className={styles['details__pointer--border']}></div>
             <div className={styles.details} style={{ left: `${leftPosition}px`}}>
                 <div id={`back-${data.id}`} className={styles.details__data}>
-                    <h2 className={styles['details__data--title']}>{data.original_title}</h2>
+                    <h2 className={styles['details__data--title']}>{data.title}</h2>
                     <Rating rating={Math.floor(data.vote_average)} />
                     <p className={styles['details__data--overview']}>{data.overview}</p>
                     <ul className={styles['details__data--genres']}>
@@ -71,7 +71,7 @@ export const MovieDetails = ({ data, config }: Props) => {
                 {backdropUrl && 
                     (
                         <div className={styles['details__image-wrapper']}>
-                            <img style={{ height: `${imageHeight}px` }} src={backdropUrl} alt={data.original_title} />
+                            <img style={{ height: `${imageHeight}px` }} src={backdropUrl} alt={data.title} />
                         </div>
                     )
                 }

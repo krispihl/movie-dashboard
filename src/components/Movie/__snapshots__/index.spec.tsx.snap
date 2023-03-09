@@ -5,6 +5,7 @@ exports[`src/components/Movie should render Movie correctly with poster image 1`
   <div
     class="wrapper"
     id="123456"
+    tabindex="0"
   >
     <div
       class="movie"
@@ -24,6 +25,7 @@ exports[`src/components/Movie should render Movie correctly without poster image
   <div
     class="wrapper"
     id="123456"
+    tabindex="0"
   >
     <div
       class="movie"
@@ -32,6 +34,7 @@ exports[`src/components/Movie should render Movie correctly without poster image
         class="movie__poster movie__poster--missing"
       >
         <span
+          aria-label="Movie poster missing"
           class="material-icons"
         >
           photo_camera

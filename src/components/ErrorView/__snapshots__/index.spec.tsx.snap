@@ -11,6 +11,7 @@ exports[`src/components/ErrorView should render Errorview correctly 1`] = `
     >
       Now this is unfortunate 
       <span
+        aria-label="Sad face"
         class="material-icons"
       >
         sentiment_very_dissatisfied
@@ -37,6 +38,7 @@ exports[`src/components/ErrorView should render Errorview correctly with full he
     >
       Now this is unfortunate 
       <span
+        aria-label="Sad face"
         class="material-icons"
       >
         sentiment_very_dissatisfied

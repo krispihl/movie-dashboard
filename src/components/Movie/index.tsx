@@ -41,7 +41,7 @@ export const Movie = ({ data, backDropSpacing }: Props) => {
     }, [setActiveRow, showMovieDetails, data.id, data.rowPosition]);
 
     return (
-        <div className={styles.wrapper} id={String(data.id)}>
+        <div className={styles.wrapper} id={String(data.id)} tabIndex={0}>
             <div
                 className={cx(styles.movie, (showMovieDetails === data.id) && styles['movie--with-details'])}
                 style={backDropSpacing ? { marginBottom: `${backDropSpacing}px` } : {}}
@@ -51,9 +51,9 @@ export const Movie = ({ data, backDropSpacing }: Props) => {
                 }}
             >
                 {posterUrl ?
-                    <img className={styles.movie__poster} src={posterUrl} alt={data.original_title} /> :
+                    <img className={styles.movie__poster} src={posterUrl} alt={data.title} /> :
                     (<div className={cx(styles.movie__poster, styles['movie__poster--missing'])}>
-                        <span className="material-icons">photo_camera</span>
+                        <span className="material-icons" aria-label='Movie poster missing'>photo_camera</span>
                         <h2>{data.title}</h2>
                     </div>)
                 }

@@ -1,5 +1,9 @@
 .wrapper {
     position: relative;
+
+    &:focus-visible {
+        outline: 1px solid var(--white);
+    }
 }
 
 .movie {

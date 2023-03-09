@@ -3,7 +3,10 @@
 exports[`src/components/Filter should render Filter correctly with all genres 1`] = `
 <div>
   <ul
+    aria-expanded="true"
+    aria-label="Filter movies"
     class="genres"
+    role="row"
   >
     <button
       class="genres__item genres__item--active"
@@ -42,7 +45,10 @@ exports[`src/components/Filter should render Filter correctly with all genres 1`
 exports[`src/components/Filter should render Filter correctly with popular genres 1`] = `
 <div>
   <ul
+    aria-expanded="false"
+    aria-label="Filter movies"
     class="genres"
+    role="row"
   >
     <button
       class="genres__item genres__item--active"

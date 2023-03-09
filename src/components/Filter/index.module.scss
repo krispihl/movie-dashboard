@@ -11,6 +11,10 @@
             cursor: pointer;
         }
 
+        &:focus-visible {
+            outline: 1px solid var(--white);
+        }
+
         &--active {
             color: var(--white);
         }

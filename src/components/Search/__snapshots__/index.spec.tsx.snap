@@ -3,6 +3,7 @@
 exports[`src/components/Search should clear searchterm when clicked on clear icon 1`] = `
 <div>
   <div
+    aria-label="Search for movies"
     class="search"
   >
     <input
@@ -11,6 +12,7 @@ exports[`src/components/Search should clear searchterm when clicked on clear ico
       value=""
     />
     <span
+      aria-label="Search icon"
       class="material-icons search__icon"
     >
       search
@@ -22,6 +24,7 @@ exports[`src/components/Search should clear searchterm when clicked on clear ico
 exports[`src/components/Search should render Search component correctly 1`] = `
 <div>
   <div
+    aria-label="Search for movies"
     class="search"
   >
     <input
@@ -30,6 +33,7 @@ exports[`src/components/Search should render Search component correctly 1`] = `
       value=""
     />
     <span
+      aria-label="Search icon"
       class="material-icons search__icon"
     >
       search
@@ -41,6 +45,7 @@ exports[`src/components/Search should render Search component correctly 1`] = `
 exports[`src/components/Search should render Search component correctly when user has typed searchterm 1`] = `
 <div>
   <div
+    aria-label="Search for movies"
     class="search"
   >
     <input
@@ -49,6 +54,7 @@ exports[`src/components/Search should render Search component correctly when use
       value="The"
     />
     <span
+      aria-label="Clear search"
       class="material-icons search__icon search__icon--clear"
     >
       clear

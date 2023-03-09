@@ -27,7 +27,7 @@ export const Rating = ({ rating }: Props) => {
     const icons = RATING_MAP[rating];
 
     return (
-        <ul>
+        <ul aria-label={`Movie rating is ${rating}`}>
             {icons.map((icon, i) => {
                 return <span key={i} className={cx('material-icons', styles.icon)}>{icon}</span>
             })}

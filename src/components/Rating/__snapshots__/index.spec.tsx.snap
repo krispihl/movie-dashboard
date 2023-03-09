@@ -2,7 +2,9 @@
 
 exports[`src/components/Rating should render 0 Rating correctly 1`] = `
 <div>
-  <ul>
+  <ul
+    aria-label="Movie rating is 0"
+  >
     <span
       class="material-icons icon"
     >
@@ -34,7 +36,9 @@ exports[`src/components/Rating should render 0 Rating correctly 1`] = `
 
 exports[`src/components/Rating should render 5 Rating correctly 1`] = `
 <div>
-  <ul>
+  <ul
+    aria-label="Movie rating is 5"
+  >
     <span
       class="material-icons icon"
     >
@@ -66,7 +70,9 @@ exports[`src/components/Rating should render 5 Rating correctly 1`] = `
 
 exports[`src/components/Rating should render 10 Rating correctly 1`] = `
 <div>
-  <ul>
+  <ul
+    aria-label="Movie rating is 10"
+  >
     <span
       class="material-icons icon"
     >
