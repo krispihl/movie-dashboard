@@ -9,6 +9,7 @@ This is a test project to display most popular movies using [The Movie Database 
 - If a movie has trailer video available, selected movie will show a play icon and clicking on the movie it will open a movie modal.
 - It is possible to filter movies by category. In the design one of the popular categories listed was `Classic`. As the API did not provide such a category it was replaced by category `Action`.
 - It is possible to search for movies.
+- Components are covered by basic unit tests.
 
 ## Prerequisite to run this project locally
 
