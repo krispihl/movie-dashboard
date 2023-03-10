@@ -42,7 +42,7 @@ export const Movie = ({ data, backDropSpacing }: Props) => {
     }, [setActiveRow, showMovieDetails, data.id, data.rowPosition]);
 
     return (
-        <div className={styles.wrapper} id={String(data.id)} tabIndex={0}>
+        <div className={styles.wrapper} id={String(data.id)}>
             <div
                 className={cx(styles.movie, (showMovieDetails === data.id) && styles['movie--with-details'])}
                 style={backDropSpacing ? { marginBottom: `${backDropSpacing}px` } : {}}
