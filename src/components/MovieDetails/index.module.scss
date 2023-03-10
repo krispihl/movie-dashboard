@@ -1,4 +1,4 @@
-.details {
+.description {
     display: flex;
     justify-content: space-between;
     background-color: var(--black);
@@ -19,49 +19,20 @@
         border-right: 9px solid transparent;
         border-bottom: 9px solid var(--black);
         z-index: 1;
-
-        &--border {
-            position: absolute;
-            top: 187px;
-            left: 52px;
-            width: 0; 
-            height: 0; 
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 15px solid var(--gray);
-        }
     }
 
-    &__data {
-        padding: 40px 25px;
-        width: 50%;
-
-        @media only screen and (max-width: 800px) {
-            width: 100%;
-        } 
-
-        &--title {
-            margin-bottom: 10px;
-        }
-
-        &--overview {
-            font-size: 18px;
-            margin: 10px 0 15px 0;
-        }
-
-        &--genres {
-            list-style: none;
-            display: flex;
-            color: var(--gray);
-            font-size: 18px;
-
-            li {
-                margin-right: 15px;
-            }
-        }
+    &__pointer-border {
+        position: absolute;
+        top: 187px;
+        left: 52px;
+        width: 0; 
+        height: 0; 
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid var(--gray);
     }
 
-    &__image-wrapper {
+    &__image {
         position: relative;
         display: flex;
         justify-content: center;
@@ -82,5 +53,34 @@
             height:100%;
             background: linear-gradient(to left, transparent, var(--black))
           }
+    }
+}
+
+.details {
+    padding: 40px 25px;
+    width: 50%;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    } 
+
+    &__title {
+        margin-bottom: 10px;
+    }
+
+    &__overview {
+        font-size: 18px;
+        margin: 10px 0 15px 0;
+    }
+
+    &__genres {
+        list-style: none;
+        display: flex;
+        color: var(--gray);
+        font-size: 18px;
+
+        li {
+            margin-right: 15px;
+        }
     }
 }

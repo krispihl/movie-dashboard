@@ -58,20 +58,20 @@ export const MovieDetails = ({ data, config }: Props) => {
 
     return (
         <>
-            <div className={styles.details__pointer}></div>
-            <div className={styles['details__pointer--border']}></div>
-            <div className={styles.details} style={{ left: `${leftPosition}px`}}>
-                <div id={`back-${data.id}`} className={styles.details__data}>
-                    <h2 className={styles['details__data--title']}>{data.title}</h2>
+            <div className={styles.description__pointer}></div>
+            <div className={styles['description__pointer-border']}></div>
+            <div className={styles.description} style={{ left: `${leftPosition}px`}}>
+                <div id={`back-${data.id}`} className={styles.details}>
+                    <h2 className={styles.details__title}>{data.title}</h2>
                     <Rating rating={Math.floor(data.vote_average)} />
-                    <p className={styles['details__data--overview']}>{data.overview}</p>
-                    <ul className={styles['details__data--genres']}>
+                    <p className={styles.details__overview}>{data.overview}</p>
+                    <ul className={styles.details__genres}>
                         {movieGenres.map((genre, i) => <li key={i}>{`#${genre}`}</li>)}
                     </ul>
                 </div>
                 {backdropUrl && 
                     (
-                        <div className={styles['details__image-wrapper']}>
+                        <div className={styles.description__image}>
                             <img style={{ height: `${imageHeight}px` }} src={backdropUrl} alt={data.title} />
                         </div>
                     )

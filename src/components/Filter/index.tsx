@@ -63,7 +63,7 @@ export const Filter = () => {
             return (
                 <button
                     key={genre.id}
-                    className={cx(styles.genres__item, (activeGenre === genre.id) && styles[`genres__item--active`])}
+                    className={cx(styles.filter__item, (activeGenre === genre.id) && styles[`filter__item--active`])}
                     onClick={() => handleClick(genre.id)}
                 >
                     {genre.name}
@@ -73,11 +73,11 @@ export const Filter = () => {
     }, [activeGenre, genres, handleClick]);
 
     return (
-        <ul className={styles.genres} aria-label='Filter movies' role='row' aria-expanded={!showOnlyPopular}>
+        <ul className={styles.filter} aria-label='Filter movies' role='row' aria-expanded={!showOnlyPopular}>
             {getFilters(showOnlyPopular)}
             {getFilters(showOnlyPopular).length > 1 &&
                 <button
-                    className={styles.genres__item}
+                    className={styles.filter__item}
                     onClick={() => setShowOnlyPopular(prevState => !prevState)}
                 >
                     {showOnlyPopular ? 'More' : 'Less'}

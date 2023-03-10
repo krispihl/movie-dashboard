@@ -59,8 +59,8 @@ export const Movie = ({ data, backDropSpacing }: Props) => {
                     </div>)
                 }
                 {(showMovieDetails === data.id && embedId) && (
-                    <div className={styles.playButton} onClick={() => setVideoEmbedId(embedId)}>
-                        <span className={cx('material-icons', styles.playButton__icon)}>play_circle</span>
+                    <div className={styles.movie__playButton} onClick={() => setVideoEmbedId(embedId)}>
+                        <span className='material-icons'>play_circle</span>
                     </div>
                 )} 
             </div>
