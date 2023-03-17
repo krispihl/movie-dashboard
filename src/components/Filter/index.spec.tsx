@@ -56,7 +56,7 @@ describe('src/components/Filter', () => {
         expect(screen.getByText('Less')).toBeInTheDocument();
         expect(screen.getByText('History')).toBeInTheDocument();
 
-        const allFilterButtons = document.querySelectorAll('.genres__item');
+        const allFilterButtons = document.querySelectorAll('.filter__item');
 
         expect(allFilterButtons).toHaveLength(6);
     });

@@ -5,36 +5,36 @@ exports[`src/components/Filter should render Filter correctly with all genres 1`
   <ul
     aria-expanded="true"
     aria-label="Filter movies"
-    class="genres"
+    class="filter"
     role="row"
   >
     <button
-      class="genres__item genres__item--active"
+      class="filter__item filter__item--active"
     >
       All movies
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Comedy
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Drama
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Crime
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       History
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Less
     </button>
@@ -47,26 +47,26 @@ exports[`src/components/Filter should render Filter correctly with popular genre
   <ul
     aria-expanded="false"
     aria-label="Filter movies"
-    class="genres"
+    class="filter"
     role="row"
   >
     <button
-      class="genres__item genres__item--active"
+      class="filter__item filter__item--active"
     >
       All movies
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Comedy
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       Drama
     </button>
     <button
-      class="genres__item"
+      class="filter__item"
     >
       More
     </button>

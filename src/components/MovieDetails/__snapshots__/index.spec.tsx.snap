@@ -3,21 +3,21 @@
 exports[`src/components/MovieDetails should render MovieDetails correctly 1`] = `
 <div>
   <div
-    class="details__pointer"
+    class="description__pointer"
   />
   <div
-    class="details__pointer--border"
+    class="description__pointer-border"
   />
   <div
-    class="details"
+    class="description"
     style="left: 0px;"
   >
     <div
-      class="details__data"
+      class="details"
       id="back-123456"
     >
       <h2
-        class="details__data--title"
+        class="details__title"
       >
         The Movie
       </h2>
@@ -25,12 +25,12 @@ exports[`src/components/MovieDetails should render MovieDetails correctly 1`] = 
         class="mocked-rating"
       />
       <p
-        class="details__data--overview"
+        class="details__overview"
       >
         Story about writing tests
       </p>
       <ul
-        class="details__data--genres"
+        class="details__genres"
       >
         <li>
           #Animation
@@ -41,7 +41,7 @@ exports[`src/components/MovieDetails should render MovieDetails correctly 1`] = 
       </ul>
     </div>
     <div
-      class="details__image-wrapper"
+      class="description__image"
     >
       <img
         alt="The Movie"
